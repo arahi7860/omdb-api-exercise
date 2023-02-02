@@ -6,7 +6,7 @@ input {
   padding: 8px;
   border-radius: 2px;
   border-radius: 14%;
-  margin:5px;
+  margin: 5px;
 }
 
 img {
@@ -15,7 +15,7 @@ img {
 button {
   text-transform: uppercase;
   border: 1px solid black;
-  background-color: #92A63E;
+  background-color: #92a63e;
   padding: 8px;
   border-radius: 14%;
 }
@@ -26,4 +26,27 @@ button {
   align-items: center;
   padding: 10px;
   margin: 10px;
+}
+
+/* /* .movie-list div {
+  /* display: flex;
+  flex-wrap: wrap; */
+/*  */
+
+.movie-list img,
+.movie-list p {
+  cursor: pointer;
+}
+
+.movie-list span:hover {
+  text-decoration: underline;
+}
+
+.movie {
+  width: 100px;
+}
+
+.movie img {
+  object-fit: contain;
+  height: 200px;
 }

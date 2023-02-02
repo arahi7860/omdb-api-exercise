@@ -6,7 +6,7 @@ const BASE_URL = `${DOMAIN}?apikey=${API_KEY}&`;
 const button = document.querySelector("#search");
 const input = document.getElementById("blank");
 
-const movieList = document.querySelector(".movie-list");
+const movieList = document.querySelector(".movie-list div");
 const form = document.querySelector("form");
 
 button.addEventListener("click", async (e) => {
@@ -24,8 +24,36 @@ async function fetchCall(search) {
 function renderList(movies) {
   document.querySelectorAll("p").forEach((p) => p.remove());
   for (const movie of movies) {
+    let { Poster, imdbID } = movie;
+    const div = document.createElement("div");
+    div.classList.add("movie");
+    div.style = `
+    display: flex;
+    flex-direction: column;
+    `;
+
+    const handleClick = async () => {
+      const info = await getMovieDetails(imdbID);
+      console.log(info);
+    };
+
+    const img = document.createElement("img");
+    img.src = Poster;
+    img.addEventListener("click", handleClick);
+
     const p = document.createElement("p");
     p.textContent = movie.Title;
-    movieList.append(p);
+
+    // const span = document.querySelector("span");
+    // p.append(span);
+
+    // span.addEventListener("click", handleClick);
+
+    div.append(img, p);
+    movieList.append(p, img);
+
+    // const p = document.createElement("p");
+    // p.textContent = movie.Title;
+    // movieList.append(p);
   }
 }
